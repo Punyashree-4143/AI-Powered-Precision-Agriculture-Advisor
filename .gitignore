@@ -12,3 +12,8 @@ frontend/node_modules/
 
 # Ignore VS Code settings
 .vscode/
+
+# Large data files
+backend/market_price/karnataka_data.csv
+backend/models/soil_moisture_full.csv
+prophet_backend/karnataka_data.csv
