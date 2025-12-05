@@ -1,0 +1,293 @@
+{
+  "Apple_Black_Rot": {
+    "crop": "Apple",
+    "disease": "Black Rot",
+    "treatment": {
+      "organic": [
+        "Remove infected leaves & fruits",
+        "Apply neem oil spray weekly",
+        "Use compost tea foliar spray"
+      ],
+      "chemical": [
+        "Use Captan 50 WP",
+        "Spray Thiophanate-methyl"
+      ],
+      "prevention": [
+        "Prune infected branches",
+        "Maintain orchard hygiene",
+        "Avoid overhead irrigation"
+      ]
+    }
+  },
+
+  "Apple_Healthy": {
+    "crop": "Apple",
+    "disease": "Healthy",
+    "treatment": {
+      "organic": ["No treatment needed"],
+      "chemical": ["No treatment needed"],
+      "prevention": ["Continue regular monitoring"]
+    }
+  },
+
+  "Apple_Rust": {
+    "crop": "Apple",
+    "disease": "Rust",
+    "treatment": {
+      "organic": [
+        "Use sulfur-based sprays",
+        "Apply neem oil every 7 days"
+      ],
+      "chemical": [
+        "Spray Myclobutanil",
+        "Use Trifloxystrobin"
+      ],
+      "prevention": [
+        "Remove nearby juniper plants",
+        "Ensure proper spacing for airflow"
+      ]
+    }
+  },
+
+  "Apple_Scab": {
+    "crop": "Apple",
+    "disease": "Scab",
+    "treatment": {
+      "organic": [
+        "Use potassium bicarbonate spray",
+        "Apply compost tea"
+      ],
+      "chemical": [
+        "Spray Mancozeb",
+        "Apply Captan fungicide"
+      ],
+      "prevention": [
+        "Avoid water on leaves",
+        "Prune densely packed branches"
+      ]
+    }
+  },
+
+  "Corn_Common_Rust": {
+    "crop": "Corn",
+    "disease": "Common Rust",
+    "treatment": {
+      "organic": ["Use neem oil", "Improve airflow between plants"],
+      "chemical": ["Spray Azoxystrobin", "Use Propiconazole"],
+      "prevention": ["Grow rust-resistant varieties", "Avoid late planting"]
+    }
+  },
+
+  "Corn_Gray_Leaf_Spot": {
+    "crop": "Corn",
+    "disease": "Gray Leaf Spot",
+    "treatment": {
+      "organic": [
+        "Use compost tea",
+        "Remove infected leaves"
+      ],
+      "chemical": ["Spray Pyraclostrobin", "Use Trifloxystrobin"],
+      "prevention": ["Crop rotation", "Avoid dense planting"]
+    }
+  },
+
+  "Corn_Healthy": {
+    "crop": "Corn",
+    "disease": "Healthy",
+    "treatment": {
+      "organic": ["No action required"],
+      "chemical": ["No action required"],
+      "prevention": ["Continue good agricultural practices"]
+    }
+  },
+
+  "Corn_Leaf_Blight": {
+    "crop": "Corn",
+    "disease": "Northern Leaf Blight",
+    "treatment": {
+      "organic": ["Neem oil spray", "Use Trichoderma in soil"],
+      "chemical": ["Apply Mancozeb", "Spray Propiconazole"],
+      "prevention": ["Use disease-resistant hybrids", "Ensure proper spacing"]
+    }
+  },
+
+  "Grape_Black_Rot": {
+    "crop": "Grape",
+    "disease": "Black Rot",
+    "treatment": {
+      "organic": ["Neem oil weekly", "Remove infected grapes"],
+      "chemical": ["Spray Captan", "Use Myclobutanil"],
+      "prevention": ["Prune for airflow", "Avoid water on leaves"]
+    }
+  },
+
+  "Grape_Healthy": {
+    "crop": "Grape",
+    "disease": "Healthy",
+    "treatment": {
+      "organic": ["No treatment needed"],
+      "chemical": ["No treatment needed"],
+      "prevention": ["Regular monitoring"]
+    }
+  },
+
+  "Grape_Leaf_Blight": {
+    "crop": "Grape",
+    "disease": "Leaf Blight",
+    "treatment": {
+      "organic": ["Use compost tea", "Neem oil spray"],
+      "chemical": ["Apply Chlorothalonil", "Use Mancozeb"],
+      "prevention": ["Train vines for airflow", "Avoid overhead watering"]
+    }
+  },
+
+  "Pepper_Bacterial_Spot": {
+    "crop": "Pepper",
+    "disease": "Bacterial Leaf Spot",
+    "treatment": {
+      "organic": ["Copper-based fungicide", "Neem oil"],
+      "chemical": ["Streptocycline spray", "Copper oxychloride"],
+      "prevention": ["Avoid wet leaves", "Use disease-free seeds"]
+    }
+  },
+
+  "Pepper_Healthy": {
+    "crop": "Pepper",
+    "disease": "Healthy",
+    "treatment": {
+      "organic": ["No action needed"],
+      "chemical": ["No action needed"],
+      "prevention": ["Maintain good field hygiene"]
+    }
+  },
+
+  "Potato_Early_Blight": {
+    "crop": "Potato",
+    "disease": "Early Blight",
+    "treatment": {
+      "organic": ["Neem oil spray", "Use baking soda spray"],
+      "chemical": ["Mancozeb", "Chlorothalonil"],
+      "prevention": ["Ensure crop rotation", "Avoid overhead irrigation"]
+    }
+  },
+
+  "Potato_Healthy": {
+    "crop": "Potato",
+    "disease": "Healthy",
+    "treatment": {
+      "organic": ["No action needed"],
+      "chemical": ["No action needed"],
+      "prevention": ["Maintain healthy soil"]
+    }
+  },
+
+  "Potato_Late_Blight": {
+    "crop": "Potato",
+    "disease": "Late Blight",
+    "treatment": {
+      "organic": ["Use Bordeaux mixture", "Neem extract"],
+      "chemical": ["Metalaxyl", "Propamocarb"],
+      "prevention": ["Use certified seeds", "Ensure proper spacing"]
+    }
+  },
+
+  "Soybean_Healthy": {
+    "crop": "Soybean",
+    "disease": "Healthy",
+    "treatment": {
+      "organic": ["No action needed"],
+      "chemical": ["No action needed"],
+      "prevention": ["Follow crop rotation"]
+    }
+  },
+
+  "Tomato_Bacterial_Spot": {
+    "crop": "Tomato",
+    "disease": "Bacterial Spot",
+    "treatment": {
+      "organic": ["Neem oil", "Garlic extract spray"],
+      "chemical": ["Copper fungicide", "Streptocycline"],
+      "prevention": ["Avoid leaf wetness", "Sanitize tools"]
+    }
+  },
+
+  "Tomato_Early_Blight": {
+    "crop": "Tomato",
+    "disease": "Early Blight",
+    "treatment": {
+      "organic": ["Compost tea", "Neem oil"],
+      "chemical": ["Mancozeb", "Chlorothalonil"],
+      "prevention": ["Mulching", "Crop rotation"]
+    }
+  },
+
+  "Tomato_Healthy": {
+    "crop": "Tomato",
+    "disease": "Healthy",
+    "treatment": {
+      "organic": ["No action required"],
+      "chemical": ["No action required"],
+      "prevention": ["Regular monitoring"]
+    }
+  },
+
+  "Tomato_Late_Blight": {
+    "crop": "Tomato",
+    "disease": "Late Blight",
+    "treatment": {
+      "organic": ["Use Bordeaux Mixture", "Neem oil"],
+      "chemical": ["Metalaxyl", "Propamocarb"],
+      "prevention": ["Provide good airflow", "Avoid water on leaves"]
+    }
+  },
+
+  "Tomato_Leaf_Mold": {
+    "crop": "Tomato",
+    "disease": "Leaf Mold",
+    "treatment": {
+      "organic": ["Baking soda spray", "Neem oil"],
+      "chemical": ["Chlorothalonil", "Copper fungicide"],
+      "prevention": ["Reduce humidity", "Ensure ventilation"]
+    }
+  },
+
+  "Tomato_Mosaic_Virus": {
+    "crop": "Tomato",
+    "disease": "Mosaic Virus",
+    "treatment": {
+      "organic": ["Remove infected plants", "Apply seaweed extract"],
+      "chemical": ["No chemical cure (virus)"],
+      "prevention": ["Sanitize equipment", "Control aphids"]
+    }
+  },
+
+  "Tomato_Septoria": {
+    "crop": "Tomato",
+    "disease": "Septoria Leaf Spot",
+    "treatment": {
+      "organic": ["Mulching", "Neem oil"],
+      "chemical": ["Chlorothalonil", "Copper sprays"],
+      "prevention": ["Avoid overhead irrigation", "Prune lower leaves"]
+    }
+  },
+
+  "Tomato_Target_Spot": {
+    "crop": "Tomato",
+    "disease": "Target Spot",
+    "treatment": {
+      "organic": ["Use compost tea", "Neem oil"],
+      "chemical": ["Chlorothalonil", "Difenoconazole"],
+      "prevention": ["Ensure airflow", "Crop rotation"]
+    }
+  },
+
+  "Tomato_Yellow_Leaf_Curl_Virus": {
+    "crop": "Tomato",
+    "disease": "Yellow Leaf Curl Virus",
+    "treatment": {
+      "organic": ["Remove infected plants", "Apply neem oil for whiteflies"],
+      "chemical": ["No chemical cure, only vector control"],
+      "prevention": ["Use virus-resistant varieties", "Control whiteflies"]
+    }
+  }
+}

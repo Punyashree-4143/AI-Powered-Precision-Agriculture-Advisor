@@ -1,0 +1,104 @@
+/* ----------------------------------
+   CENTER MODULE & REMOVE DOUBLE MARGIN
+-------------------------------------*/
+.page-content {
+  margin: 0 !important;
+  padding: 0;
+  width: 100% !important;
+  box-sizing: border-box;
+}
+
+/* Wrapper to center everything */
+.irrigation-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.planner-title {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1a6b32;
+  margin-bottom: 18px;
+}
+
+/* Main card */
+.panel {
+  background: #fff;
+  padding: 18px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Form rows */
+.form-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+
+/* Fields */
+label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+}
+
+select, input {
+  margin-top: 6px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  min-width: 160px;
+}
+
+/* Buttons */
+.btn {
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  flex: 1;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  transition: 0.2s ease-in-out;
+}
+
+.btn.primary { background: #22c55e; }
+.btn.primary:hover { background: #16a34a; }
+
+.btn.secondary { background: #777; }
+.btn.secondary:hover { background: #555; }
+
+.btn.export { background: #60a5fa; }
+.btn.export:hover { background: #3b82f6; }
+
+/* Table */
+.result-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.result-table th, 
+.result-table td {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+/* Chart */
+.chart-wrap {
+  height: 340px;
+  margin-top: 20px;
+}
+
+/* Error box */
+.error {
+  background: #ffe5e5;
+  color: #b91c1c;
+  padding: 12px;
+  border-radius: 8px;
+}

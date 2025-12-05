@@ -1,0 +1,85 @@
+/* src/styles/MarketPrice.css */
+.market-container {
+  max-width: 960px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+  font-family: Inter, Roboto, Arial, sans-serif;
+}
+
+.market-container h2 { margin-bottom: 12px; }
+
+.form-box {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.select-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.select-row select {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  min-width: 200px;
+}
+
+.actions-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.actions-row button {
+  padding: 10px 18px;
+  border-radius: 6px;
+  border: none;
+  background: #2b7cff;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.actions-row button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.download-link {
+  font-size: 13px;
+  color: #444;
+  text-decoration: underline;
+}
+
+.error { color: #b00020; margin-top: 8px; }
+
+.chart-box { margin-top: 16px; height: 260px; }
+
+.results-box {
+  margin-top: 18px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th, table td {
+  border: 1px solid #e6e6e6;
+  padding: 10px;
+  text-align: left;
+}
+.page-content {
+  margin-left: 230px;      /* shift right for sidebar */
+  margin-top: 70px;        /* shift down for navbar (adjust if needed) */
+  padding: 20px;
+  box-sizing: border-box;
+  width: calc(100% - 230px);
+}

@@ -1,0 +1,39 @@
+.sidebar {
+  width: 230px;
+  height: 100vh;
+  background: #0f3d23;
+  padding-top: 20px;
+  color: white;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.sidebar-title {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 20px;
+}
+
+.side-item {
+  display: block;
+  padding: 12px 20px;
+  color: #c8f7c5;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.side-item:hover {
+  background: #145c36;
+  color: #fff;
+}
+
+.logout {
+  position: absolute;
+  bottom: 20px;
+  width: 80%;
+  margin-left: 10%;
+  text-align: center;
+  border-radius: 8px;
+  background: #c0392b;
+}

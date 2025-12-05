@@ -1,0 +1,115 @@
+/* PAGE LAYOUT (fixes sidebar + navbar offset automatically) */
+.dp-page-content {
+  margin: 0 !important;
+  padding: 0;
+  width: 100% !important;
+  box-sizing: border-box;
+}
+
+/* Center everything */
+.dp-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Title */
+.dp-title {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1a6b32;
+  margin-bottom: 20px;
+}
+
+/* Card Layout */
+.dp-card {
+  background: white;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  display: flex;
+  gap: 20px;
+}
+
+/* LEFT PANEL */
+.dp-left {
+  width: 45%;
+  background: #f0fff4;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: inset 0 0 8px rgba(0,0,0,0.05);
+  text-align: center;
+}
+
+.dp-heading {
+  font-weight: 600;
+  font-size: 16px;
+  color: #145c2e;
+  margin-bottom: 8px;
+}
+
+.dp-preview {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-top: 10px;
+  border: 2px solid #c8e6c9;
+}
+
+.dp-button {
+  margin-top: 12px;
+  width: 100%;
+  padding: 12px;
+  background: #16a34a;
+  color: white;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.dp-button:hover {
+  background: #15803d;
+}
+
+.dp-error {
+  color: #b91c1c;
+  margin-top: 8px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+/* RIGHT PANEL */
+.dp-right {
+  width: 55%;
+  background: #f7fff8;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: inset 0 0 8px rgba(0,0,0,0.05);
+}
+
+.dp-placeholder {
+  opacity: 0.6;
+  font-size: 14px;
+}
+
+.dp-subTitle {
+  margin-top: 12px;
+  font-weight: bold;
+  color: #145c2e;
+  font-size: 15px;
+}
+
+.dp-list {
+  padding-left: 20px;
+  font-size: 14px;
+}
+
+.dp-result p {
+  margin: 5px 0;
+  font-size: 15px;
+}

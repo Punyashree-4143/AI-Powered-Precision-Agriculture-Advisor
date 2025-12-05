@@ -1,0 +1,105 @@
+/* MAIN CONTAINER */
+.weather-container {
+  width: 100%;
+  max-width: 950px;
+  margin: auto;
+  padding: 20px;
+}
+
+
+/* 🌟 TODAY HIGHLIGHT CARD */
+.today-highlight {
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  color: white;
+  padding: 25px;
+  border-radius: 22px;
+  margin-bottom: 25px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  border-left: 6px solid #ffffffaa;
+}
+
+.today-header {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.today-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.today-left {
+  text-align: center;
+}
+
+.today-icon {
+  font-size: 80px;
+  margin-bottom: 10px;
+}
+
+.today-temp {
+  font-size: 46px;
+  font-weight: 700;
+}
+
+.today-feels {
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+.today-details p {
+  margin: 4px 0;
+  font-size: 15px;
+  color: #f0faff;
+}
+
+
+/* WEEKLY */
+.weekly-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.weekly-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.week-card {
+  background: #ffffff;
+  padding: 16px;
+  border-radius: 16px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.week-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.week-icon {
+  font-size: 34px;
+}
+
+.week-date {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.week-line {
+  font-size: 14px;
+  margin-top: 6px;
+  color: #444;
+}
+.page-content {
+  margin-left: 230px;      /* shift right for sidebar */
+  margin-top: 70px;        /* shift down for navbar (adjust if needed) */
+  padding: 20px;
+  box-sizing: border-box;
+  width: calc(100% - 230px);
+}

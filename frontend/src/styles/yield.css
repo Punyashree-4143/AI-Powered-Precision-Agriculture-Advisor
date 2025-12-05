@@ -1,0 +1,88 @@
+/* Yield Prediction Form */
+.yield-container {
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 25px;
+}
+
+.yield-form {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+}
+
+.yield-form h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #2e7d32;
+}
+
+.yield-form label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.yield-form input,
+.yield-form select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #d4d4d4;
+  border-radius: 6px;
+  font-size: 15px;
+  margin-bottom: 15px;
+  transition: 0.2s;
+}
+
+.yield-form input:focus {
+  outline: none;
+  border-color: #4caf50;
+  box-shadow: 0 0 4px rgba(76,175,80,0.4);
+}
+
+.yield-form button {
+  width: 100%;
+  padding: 12px;
+  background: #4caf50;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 17px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.yield-form button:hover {
+  background: #388e3c;
+}
+
+/* Result Card */
+.yield-result {
+  margin-top: 25px;
+  padding: 20px;
+  background: #fafafa;
+  border-radius: 10px;
+  border-left: 6px solid #4caf50;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+
+.yield-result h3 {
+  color: #2e7d32;
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.yield-result p {
+  margin: 8px 0;
+  font-size: 16px;
+}
+.page-content {
+  margin-left: 230px;      /* shift right for sidebar */
+  margin-top: 0px;        /* shift down for navbar (adjust if needed) */
+  padding: 20px;
+  box-sizing: border-box;
+  width: calc(100% - 230px);
+}
