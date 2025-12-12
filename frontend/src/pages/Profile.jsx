@@ -7,6 +7,24 @@ const Profile = () => {
   const [profile, setProfile] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  // Decide avatar based on gender or name
+  const getAvatar = (name, gender) => {
+    if (gender) {
+      if (gender.toLowerCase() === "female") {
+        return "https://cdn-icons-png.flaticon.com/512/2922/2922561.png"; // Female avatar
+      }
+      return "https://cdn-icons-png.flaticon.com/512/2922/2922510.png"; // Male avatar
+    }
+
+    // No gender backend? Use simple detection:
+    const femaleNames = ["ananya", "isha", "shruti", "punya", "aishu", "priya", "sneha", "deepa", "radhika"];
+    if (femaleNames.includes(name.toLowerCase())) {
+      return "https://cdn-icons-png.flaticon.com/512/2922/2922561.png";
+    }
+
+    return "https://cdn-icons-png.flaticon.com/512/2922/2922510.png";
+  };
+
   // Fetch user profile
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -40,7 +58,7 @@ const Profile = () => {
 
         <div className="profile-header">
           <img
-            src="https://cdn-icons-png.flaticon.com/512/4333/4333609.png"
+            src={getAvatar(profile.name, profile.gender)}
             alt="User Avatar"
             className="profile-avatar"
           />

@@ -46,24 +46,148 @@ const SOIL_TYPES = ["Sandy", "Loamy", "Clay"];
 
 const GROWTH_STAGES = {
   Sugarcane: {
-    Tillering: 25,
-    Vegetative: 22,
-    Maturity: 20,
-    Harvesting: 18,
+    "Tillering": 25,
+    "Vegetative": 22,
+    "Grand Growth": 20,
+    "Maturity": 18,
   },
+
   Paddy: {
-    Transplanting: 40,
-    "Panicle Initiation": 35,
-    Flowering: 32,
-    Maturity: 30,
+    "Transplanting": 40,
+    "Tillering": 35,
+    "Panicle Initiation": 32,
+    "Flowering": 30,
+    "Maturity": 28,
   },
+
   Maize: {
-    Vegetative: 30,
-    Tasseling: 28,
-    Silking: 26,
+    "Vegetative": 30,
+    "Tasseling": 28,
+    "Silking": 26,
     "Grain Filling": 24,
+    "Maturity": 22,
+  },
+
+  Cotton: {
+    "Vegetative": 27,
+    "Flowering": 25,
+    "Boll Formation": 23,
+    "Maturity": 20,
+  },
+
+  Wheat: {
+    "Tillering": 29,
+    "Jointing": 27,
+    "Flowering": 25,
+    "Grain Filling": 23,
+    "Maturity": 20,
+  },
+
+  Ragi: {
+    "Tillering": 28,
+    "Flowering": 26,
+    "Grain Filling": 24,
+    "Maturity": 22,
+  },
+
+  Groundnut: {
+    "Vegetative": 28,
+    "Flowering": 26,
+    "Pegging": 24,
+    "Pod Development": 22,
+  },
+
+  Tur: {
+    "Vegetative": 30,
+    "Flowering": 28,
+    "Pod Formation": 26,
+    "Maturity": 24,
+  },
+
+  Soybean: {
+    "Vegetative": 28,
+    "Flowering": 26,
+    "Pod Development": 24,
+    "Seed Filling": 22,
+  },
+
+  Potato: {
+    "Vegetative": 30,
+    "Tuber Initiation": 28,
+    "Tuber Bulking": 26,
+    "Maturity": 24,
+  },
+
+  Onion: {
+    "Bulb Initiation": 26,
+    "Bulb Development": 24,
+    "Maturity": 22,
+  },
+
+  Tomato: {
+    "Vegetative": 28,
+    "Flowering": 26,
+    "Fruit Set": 24,
+    "Harvesting": 22,
+  },
+
+  Banana: {
+    "Vegetative": 35,
+    "Bunch Emergence": 32,
+    "Flowering": 30,
+    "Maturity": 28,
+  },
+
+  Coconut: {
+    "Vegetative": 32,
+    "Flowering": 30,
+    "Nut Development": 28,
+    "Maturity": 26,
+  },
+
+  Pulses: {
+    "Vegetative": 28,
+    "Flowering": 26,
+    "Pod Formation": 24,
+    "Maturity": 22,
+  },
+
+  Sunflower: {
+    "Vegetative": 30,
+    "Bud Formation": 28,
+    "Flowering": 26,
+    "Seed Filling": 24,
+  },
+
+  Mustard: {
+    "Vegetative": 28,
+    "Flowering": 26,
+    "Pod Filling": 24,
+    "Maturity": 22,
+  },
+
+  Sesame: {
+    "Vegetative": 28,
+    "Flowering": 26,
+    "Capsule Formation": 24,
+    "Maturity": 22,
+  },
+
+  Millet: {
+    "Tillering": 28,
+    "Flowering": 26,
+    "Grain Filling": 24,
+    "Maturity": 22,
+  },
+
+  Barley: {
+    "Tillering": 28,
+    "Flowering": 26,
+    "Grain Filling": 24,
+    "Maturity": 22,
   },
 };
+
 
 const BACKEND = "http://localhost:5000/api/irrigation";
 

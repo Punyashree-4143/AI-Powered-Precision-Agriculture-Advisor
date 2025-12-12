@@ -6,7 +6,6 @@ import {
 } from "recharts";
 import "../styles/MarketPrice.css";
 
-
 export default function MarketForecast() {
   const navigate = useNavigate();
 
@@ -26,23 +25,22 @@ export default function MarketForecast() {
 
   const BASE = "http://127.0.0.1:5000";
 
-  // Load states + commodities
+  // Load states only
   useEffect(() => {
     axios.get(`${BASE}/api/get-states`)
       .then(res => setStates(res.data.states || []))
       .catch(() => setStates([]));
-
-    axios.get(`${BASE}/api/get-commodities`)
-      .then(res => setCommodities(res.data.commodities || []))
-      .catch(() => setCommodities([]));
   }, []);
 
   const handleStateChange = (state) => {
     setSelectedState(state);
     setSelectedDistrict("");
     setSelectedMarket("");
+    setSelectedCommodity("");
+
     setDistricts([]);
     setMarkets([]);
+    setCommodities([]);
 
     if (!state) return;
 
@@ -54,13 +52,31 @@ export default function MarketForecast() {
   const handleDistrictChange = (district) => {
     setSelectedDistrict(district);
     setSelectedMarket("");
+    setSelectedCommodity("");
+
     setMarkets([]);
+    setCommodities([]);
 
     if (!district) return;
 
     axios.get(`${BASE}/api/get-markets?district=${encodeURIComponent(district)}`)
       .then(res => setMarkets(res.data.markets || []))
       .catch(() => setMarkets([]));
+  };
+
+  // LOAD COMMODITIES AFTER MARKET SELECTION
+  const loadCommodities = (district, market) => {
+    if (!district || !market) {
+      setCommodities([]);
+      return;
+    }
+
+    axios
+      .get(`${BASE}/api/get-commodities?district=${encodeURIComponent(district)}&market=${encodeURIComponent(market)}`)
+      .then(res => {
+        setCommodities(res.data.commodities || []);
+      })
+      .catch(() => setCommodities([]));
   };
 
   const getForecast = async () => {
@@ -82,13 +98,14 @@ export default function MarketForecast() {
       };
 
       const res = await axios.post(`${BASE}/api/market/predict7`, payload);
+
       if (res.data.predictions) {
         setForecast(res.data.predictions);
       } else {
         setError(res.data.error || "Unexpected response");
       }
     } catch (err) {
-      setError(err.response?.data?.error || err.message);
+      setError(err.response?.data?.message || err.response?.data?.error || "Failed to fetch forecast");
     }
 
     setLoading(false);
@@ -100,15 +117,15 @@ export default function MarketForecast() {
   }));
 
   return (
-    <div className="page-content">   {/* ✅ FIXED: No sidebar overlap */}
+    <div className="page-content">
       <div className="market-container">
-
 
         <h2>📈 7-Day Market Price Forecast</h2>
 
         <div className="form-box">
-
           <div className="select-row">
+
+            {/* STATE */}
             <select
               value={selectedState}
               onChange={e => handleStateChange(e.target.value)}
@@ -117,6 +134,7 @@ export default function MarketForecast() {
               {states.map((s, i) => <option key={i} value={s}>{s}</option>)}
             </select>
 
+            {/* DISTRICT */}
             <select
               value={selectedDistrict}
               onChange={e => handleDistrictChange(e.target.value)}
@@ -125,27 +143,38 @@ export default function MarketForecast() {
               {districts.map((d, i) => <option key={i} value={d}>{d}</option>)}
             </select>
 
+            {/* MARKET */}
             <select
               value={selectedMarket}
-              onChange={e => setSelectedMarket(e.target.value)}
+              onChange={e => {
+                const m = e.target.value;
+                setSelectedMarket(m);
+                setSelectedCommodity("");
+                loadCommodities(selectedDistrict, m);
+              }}
             >
               <option value="">Select Market</option>
               {markets.map((m, i) => <option key={i} value={m}>{m}</option>)}
             </select>
 
+            {/* COMMODITY */}
             <select
               value={selectedCommodity}
               onChange={e => setSelectedCommodity(e.target.value)}
             >
               <option value="">Select Commodity</option>
-              {commodities.map((c, i) => <option key={i} value={c}>{c}</option>)}
+              {commodities.length === 0 ? (
+                <option value="">No commodities available</option>
+              ) : (
+                commodities.map((c, i) => <option key={i} value={c}>{c}</option>)
+              )}
             </select>
+
           </div>
 
           <button onClick={getForecast} disabled={loading}>
             {loading ? "Loading..." : "Get Forecast"}
           </button>
-
         </div>
 
         {error && <div className="error">{error}</div>}
@@ -163,6 +192,7 @@ export default function MarketForecast() {
             </ResponsiveContainer>
           </div>
         )}
+
       </div>
     </div>
   );
