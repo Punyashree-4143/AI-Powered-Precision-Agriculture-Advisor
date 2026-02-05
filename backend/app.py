@@ -501,10 +501,10 @@ def create_features_for_prediction(df):
     df["day_cos"] = np.cos(2 * np.pi * df["day"] / 31)
 
     for l in LAGS:
-    df[f"lag_{l}"] = df["Avg_smlvl_at15cm"].shift(l)
+        df[f"lag_{l}"] = df["Avg_smlvl_at15cm"].shift(l)
 
-for w in ROLL_WINDOWS:
-    df[f"roll_{w}"] = df["Avg_smlvl_at15cm"].shift(1).rolling(w).mean()
+    for w in ROLL_WINDOWS:
+        df[f"roll_{w}"] = df["Avg_smlvl_at15cm"].shift(1).rolling(w).mean()
 
 return df
 
