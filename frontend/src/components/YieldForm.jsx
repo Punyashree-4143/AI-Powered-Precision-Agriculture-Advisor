@@ -22,10 +22,15 @@ export default function YieldForm({ onResult }) {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
+  try {
     const response = await predictYield(form);
     onResult(response);
-  };
+  } catch (err) {
+    onResult({ status: "error", message: "Server error" });
+  }
+};
+
 
   const placeholders = {
     District: "Enter district name",
@@ -49,25 +54,30 @@ export default function YieldForm({ onResult }) {
         Enter all necessary agricultural parameters to predict expected yield using AI.
       </p>
 
-      <form onSubmit={handleSubmit} className="yield-form-box">
-        {Object.keys(form).map((key) => (
-          <div className="yield-input-group" key={key}>
-            <label>{key.replace(/_/g, " ")}</label>
-            <input
-              type="text"
-              name={key}
-              placeholder={placeholders[key]}
-              value={form[key]}
-              onChange={handleChange}
-              required
-            />
-          </div>
-        ))}
 
-        <button type="submit" className="yield-btn">
-          🌱 Predict Yield
-        </button>
-      </form>
+      <form onSubmit={handleSubmit} className="yield-form-box">
+  <div className="yield-grid">
+    {Object.keys(form).map((key) => (
+      <div className="yield-input-group" key={key}>
+        <label>{key.replace(/_/g, " ")}</label>
+        <input
+          type="text"
+          name={key}
+          placeholder={placeholders[key]}
+          value={form[key]}
+          onChange={handleChange}
+          required
+        />
+      </div>
+    ))}
+  </div>
+
+  <button type="submit" className="yield-btn">
+    🌱 Predict Yield
+  </button>
+</form>
+
+      
     </div>
   );
 }

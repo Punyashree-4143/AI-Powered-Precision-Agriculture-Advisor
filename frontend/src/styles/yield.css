@@ -1,88 +1,183 @@
-/* Yield Prediction Form */
+/* Main container */
 .yield-container {
-  max-width: 650px;
-  margin: 0 auto;
-  padding: 25px;
-}
-
-.yield-form {
-  background: #ffffff;
-  border-radius: 10px;
-  padding: 25px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.12);
-}
-
-.yield-form h2 {
-  font-size: 24px;
-  font-weight: 700;
-  margin-bottom: 20px;
-  color: #2e7d32;
-}
-
-.yield-form label {
-  font-weight: 600;
-  display: block;
-  margin-bottom: 6px;
-}
-
-.yield-form input,
-.yield-form select {
-  width: 100%;
+  width: 880px;
+  margin: 8px auto;
   padding: 10px;
-  border: 1px solid #d4d4d4;
-  border-radius: 6px;
-  font-size: 15px;
-  margin-bottom: 15px;
-  transition: 0.2s;
+  background: #ffffff;
+  font-family: Arial, sans-serif;
 }
 
-.yield-form input:focus {
-  outline: none;
-  border-color: #4caf50;
-  box-shadow: 0 0 4px rgba(76,175,80,0.4);
+/* Title */
+.yield-container h2 {
+  text-align: center;
+  font-size: 18px;
+  margin: 2px 0;
 }
 
-.yield-form button {
+/* Description */
+.yield-desc {
+  text-align: center;
+  font-size: 11px;
+  margin-bottom: 8px;
+  color: #444;
+}
+
+/* Form box */
+.yield-form-box {
+  padding: 4px;
+}
+
+/* GRID — KEY PART */
+.yield-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 12px;
+  row-gap: 6px;
+}
+
+/* Input group */
+.yield-input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Label */
+.yield-input-group label {
+  font-size: 10.5px;
+  margin-bottom: 1px;
+  font-weight: 600;
+}
+
+/* Input */
+.yield-input-group input {
+  height: 26px;
+  font-size: 11px;
+  padding: 3px 6px;
+  border-radius: 4px;
+  border: 1px solid #bbb;
+}
+
+/* Button */
+.yield-btn {
+  margin-top: 8px;
   width: 100%;
-  padding: 12px;
-  background: #4caf50;
+  height: 30px;
+  font-size: 13px;
+  background-color: #2e7d32;
+  color: white;
   border: none;
   border-radius: 6px;
-  color: #fff;
-  font-size: 17px;
   cursor: pointer;
-  font-weight: 600;
-  transition: 0.3s;
 }
 
-.yield-form button:hover {
-  background: #388e3c;
+/* Print & screenshot safe */
+@media print {
+  body {
+    zoom: 85%;
+  }
+}
+/* PAGE LAYOUT */
+.yield-page {
+  display: grid;
+  grid-template-columns: 2fr 1.2fr;
+  gap: 12px;
+  max-width: 1100px;
+  margin: auto;
+  align-items: start;
 }
 
-/* Result Card */
+/* RESULT BOX */
 .yield-result {
-  margin-top: 25px;
-  padding: 20px;
-  background: #fafafa;
-  border-radius: 10px;
-  border-left: 6px solid #4caf50;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #f9fff9;
+  font-size: 12px;
 }
 
 .yield-result h3 {
-  color: #2e7d32;
-  font-size: 22px;
-  margin-bottom: 12px;
+  font-size: 14px;
+  margin-bottom: 6px;
+  text-align: center;
 }
 
-.yield-result p {
-  margin: 8px 0;
-  font-size: 16px;
+/* RESULT GRID */
+.result-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 4px;
 }
-.page-content {
-  margin-left: 230px;      /* shift right for sidebar */
-  margin-top: 0px;        /* shift down for navbar (adjust if needed) */
-  padding: 20px;
-  box-sizing: border-box;
-  width: calc(100% - 230px);
+
+.result-grid p {
+  margin: 0;
+  font-size: 12px;
+}
+
+/* ERROR */
+.yield-result.error {
+  background: #ffeaea;
+  border-color: #ff9999;
+  font-size: 12px;
+}
+
+/* PRINT SAFE */
+@media print {
+  body {
+    zoom: 85%;
+  }
+}
+/* RESULT BOX */
+.yield-result {
+  margin-top: 8px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #f8fff8;
+  font-size: 11px;
+}
+
+.yield-result h3 {
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+/* HORIZONTAL RESULT GRID */
+.result-horizontal {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 6px;
+  text-align: center;
+}
+
+.result-horizontal div {
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 6px 4px;
+}
+
+.result-horizontal span {
+  font-size: 10px;
+  font-weight: 600;
+  color: #555;
+}
+
+.result-horizontal p {
+  margin: 2px 0 0;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+/* Error */
+.yield-result.error {
+  background: #ffecec;
+  border-color: #ff9b9b;
+}
+
+/* Print safe */
+@media print {
+  body {
+    zoom: 85%;
+  }
 }

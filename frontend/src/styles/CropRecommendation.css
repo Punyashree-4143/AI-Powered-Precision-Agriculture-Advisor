@@ -1,81 +1,124 @@
+/* Container */
 .crop-container {
-  max-width: 500px;
-  margin: 40px auto;
-  background-color: #f1f8e9;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(76, 175, 80, 0.2);
-}
-
-h2 {
-  text-align: center;
-  color: #2e7d32;
-  margin-bottom: 20px;
-}
-
-.input-group {
-  margin-bottom: 15px;
-}
-
-label {
-  font-weight: 600;
-  color: #333;
-  display: block;
-  margin-bottom: 5px;
-}
-
-input {
-  width: 100%;
-  padding: 8px;
-  border-radius: 6px;
-  border: 1px solid #aaa;
-  outline: none;
-  transition: 0.3s;
-}
-
-input:focus {
-  border-color: #4caf50;
-  box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
-}
-
-button {
-  width: 100%;
+  width: 880px;
+  margin: 8px auto;
   padding: 10px;
-  background-color: #4caf50;
+  background: #ffffff;
+  font-family: Arial, sans-serif;
+}
+
+/* Title */
+.crop-container h2 {
+  text-align: center;
+  font-size: 18px;
+  margin: 2px 0;
+}
+
+/* Description */
+.desc {
+  text-align: center;
+  font-size: 11px;
+  margin-bottom: 8px;
+  color: #444;
+}
+
+/* Form */
+.form-box {
+  padding: 4px;
+}
+
+/* Input grid */
+.crop-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 12px;
+  row-gap: 6px;
+}
+
+/* Input group */
+.input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group label {
+  font-size: 10.5px;
+  font-weight: 600;
+  margin-bottom: 1px;
+}
+
+.input-group input {
+  height: 26px;
+  font-size: 11px;
+  padding: 3px 6px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+}
+
+/* Button */
+.predict-btn {
+  margin-top: 8px;
+  width: 100%;
+  height: 30px;
+  font-size: 13px;
+  background: #2e7d32;
   color: white;
-  font-size: 16px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  transition: background 0.3s;
 }
 
-button:hover {
-  background-color: #388e3c;
+/* Result box */
+.result-box {
+  margin-top: 8px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #f8fff8;
 }
 
-.result {
-  margin-top: 20px;
+.result-box h3 {
   text-align: center;
-  font-weight: 600;
-  color: #1b5e20;
-  font-size: 18px;
+  font-size: 14px;
+  margin-bottom: 6px;
 }
 
-.back-btn {
-  background: transparent;
-  border: none;
+/* Horizontal result */
+.result-horizontal {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+/* Result cards */
+.result-card {
+  text-align: center;
+  padding: 6px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: #ffffff;
+}
+
+.result-card span {
+  font-size: 10px;
+  font-weight: 600;
+  color: #555;
+}
+
+.result-card p {
+  margin: 2px 0;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.result-card small {
+  font-size: 11px;
   color: #2e7d32;
-  font-weight: 600;
-  cursor: pointer;
-  margin-bottom: 10px;
-}
-.page-content {
-  margin-left: 230px;      /* shift right for sidebar */
-  margin-top: 70px;        /* shift down for navbar (adjust if needed) */
-  padding: 20px;
-  box-sizing: border-box;
-  width: calc(100% - 230px);
 }
 
-
+/* Print & screenshot safe */
+@media print {
+  body {
+    zoom: 85%;
+  }
+}

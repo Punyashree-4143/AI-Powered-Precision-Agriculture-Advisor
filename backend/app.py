@@ -36,8 +36,23 @@ KARNATAKA_CSV_PATH = os.path.join(BASE_FILE_DIR, "market_price", "karnataka_data
 MODEL_SAVE_DIR = os.path.join(BASE_FILE_DIR, "market_price", "models")
 
 # Flask App
+
+
 app = Flask(__name__)
-CORS(app)
+
+CORS(
+    app,
+    resources={r"/api/*": {"origins": "*"}},
+    supports_credentials=True
+)
+@app.route("/debug-cors", methods=["GET", "OPTIONS"])
+def debug_cors():
+    return jsonify({
+        "status": "ok",
+        "origin_received": request.headers.get("Origin")
+    })
+
+
 
 app.config["AUTO_TRAIN_MISSING_MODELS"] = AUTO_TRAIN_MISSING_MODELS
 app.config["KARNATAKA_CSV_PATH"] = KARNATAKA_CSV_PATH
@@ -76,6 +91,8 @@ class User(db.Model):
 BASE_DIR = BASE_FILE_DIR
 MODEL_DIR = os.path.join(BASE_DIR, "models")
 
+
+
 # ----------------------------------------------------
 # Helper imports
 # ----------------------------------------------------
@@ -90,35 +107,9 @@ try:
 except Exception:
     CACHE = {}
 
-# ----------------------------------------------------
-# Crop Recommendation Model Load
-# ----------------------------------------------------
-crop_model = crop_scaler = crop_le = None
-try:
-    crop_model_path = os.path.join(MODEL_DIR, "crop_recommendation_model_v3.pkl")
-    scaler_path = os.path.join(MODEL_DIR, "scaler.pkl")
-    label_encoder_path = os.path.join(MODEL_DIR, "label_encoder.pkl")
 
-    log.info("🔍 Loading Crop Recommendation Model...")
-    if os.path.exists(crop_model_path):
-        with open(crop_model_path, "rb") as f:
-            crop_model = cloudpickle.load(f)
 
-    if os.path.exists(scaler_path):
-        crop_scaler = joblib.load(scaler_path)
-
-    if os.path.exists(label_encoder_path):
-        crop_le = joblib.load(label_encoder_path)
-
-    if crop_model and crop_scaler and crop_le:
-        log.info("✅ Crop Recommendation Loaded!")
-    else:
-        log.warning("Crop model missing components.")
-except Exception:
-    log.exception("❌ Crop Model Error")
-    crop_model = crop_scaler = crop_le = None
-
-# ----------------------------------------------------
+ #----------------------------------------------------
 # Yield Model Wrapper (NO CHANGE)
 # ----------------------------------------------------
 HECTARE_TO_ACRE = 2.47105
@@ -126,7 +117,7 @@ ACRE_TO_HECTARE = 0.404686
 YIELD_WRAPPER_PATH = os.path.join(MODEL_DIR, "yield_ensemble_wrapper.joblib")
 
 class EnsembleWrapper:
-    def __init__(self, xgb_path=None, cat_path=None, meta_path=None):
+    def _init_(self, xgb_path=None, cat_path=None, meta_path=None):
         self.xgb_path = xgb_path
         self.cat_path = cat_path
         self.meta_path = meta_path
@@ -169,6 +160,7 @@ class EnsembleWrapper:
 
         return w_xgb * np.array(p_xgb) + w_cat * np.array(p_cat)
 
+
 def load_yield_model():
     if not hasattr(current_app, "yield_model"):
         if not os.path.exists(YIELD_WRAPPER_PATH):
@@ -187,11 +179,12 @@ def load_yield_model():
             )
         else:
             class SW:
-                def __init__(self, m): self.m = m
+                def _init_(self, m): self.m = m
                 def predict(self, X): return self.m.predict(X)
             current_app.yield_model = SW(loaded)
 
     return current_app.yield_model
+
 
 # ----------------------------------------------------
 # HOME
@@ -382,50 +375,14 @@ def weather():
         return jsonify({"error": str(e)}), 500
 
 
-# ----------------------------------------------------
-# CROP RECOMMENDATION
-# ----------------------------------------------------
-@app.route("/api/crop-recommend", methods=["POST"])
-def crop_recommend():
-    try:
-        data = request.get_json()
 
-        if crop_scaler is None or crop_model is None or crop_le is None:
-            return jsonify({"error": "Crop recommendation model not available"}), 500
-
-        X = pd.DataFrame([[ 
-            float(data["N"]), float(data["P"]), float(data["K"]),
-            float(data["temperature"]), float(data["humidity"]),
-            float(data["ph"]), float(data["rainfall"])
-        ]], columns=["N", "P", "K", "temperature", "humidity", "ph", "rainfall"])
-
-        X_scaled = crop_scaler.transform(X)
-        probs = crop_model.predict_proba(X_scaled)[0]
-
-        top3 = probs.argsort()[-3:][::-1]
-        crops = crop_le.inverse_transform(top3)
-        scores = [round(probs[i] * 100, 2) for i in top3]
-
-        return jsonify({
-            "recommendations": [
-                {"crop": c, "confidence": s}
-                for c, s in zip(crops, scores)
-            ]
-        })
-
-    except Exception as e:
-        return jsonify({"error": str(e), "trace": traceback.format_exc()}), 500
 
 
 # ----------------------------------------------------
 # YIELD PREDICTION
 # ----------------------------------------------------
-@app.route("/api/yield-predict", methods=["POST", "OPTIONS"])
+@app.route("/api/yield-predict", methods=["POST"])
 def yield_predict():
-
-    if request.method == "OPTIONS":
-        return jsonify({"status": "ok"}), 200
-
     try:
         data = request.get_json(force=True)
 
@@ -475,6 +432,7 @@ def yield_predict():
     except Exception as e:
         log.exception("Yield Prediction Failed")
         return jsonify({"status": "error", "message": str(e)}), 500
+
 
 
 # ----------------------------------------------------
