@@ -49,3 +49,9 @@ Thumbs.db
 backend/market_price/karnataka_data.csv
 backend/models/soil_moisture_full.csv
 prophet_backend/karnataka_data.csv
+
+
+# Crop backend virtual env
+backend_crop/venv_crop/
+
+backend/fix_wrapper.py
