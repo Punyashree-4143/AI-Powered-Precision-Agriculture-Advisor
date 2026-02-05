@@ -2,6 +2,12 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+/* 🔧 BACKEND URL
+   Replace with your actual Render backend URL */
+const REGISTER_API =
+  "https://ai-powered-precision-agriculture-advisor.onrender.com/api/auth/register";
+
+
 export default function Register() {
   const navigate = useNavigate();
   const [form, setForm] = useState({
@@ -17,7 +23,9 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/api/auth/register", form);
+      await axios.post(REGISTER_API, form, {
+        headers: { "Content-Type": "application/json" },
+      });
       alert("Registration successful!");
       navigate("/login");
     } catch (err) {
@@ -108,6 +116,7 @@ export default function Register() {
               Login
             </span>
           </p>
+
         </form>
       </div>
     </div>

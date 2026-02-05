@@ -1,61 +1,69 @@
 import axios from "axios";
 
-// MAIN BACKEND (Port 5000)
+// ===============================
+// ENV VARIABLES (Vite)
+// ===============================
+const API_BASE = import.meta.env.VITE_API_BASE;
+const CROP_API_BASE = import.meta.env.VITE_CROP_API;
+
+// ===============================
+// MAIN BACKEND
+// ===============================
 export const API = axios.create({
-  baseURL: "http://localhost:5000/api",   // <-- adjust if backend runs elsewhere
+  baseURL: API_BASE,
   headers: { "Content-Type": "application/json" },
-  timeout: 15000,
+  timeout: 20000,
 });
 
 API.interceptors.response.use(
   (res) => res,
   (err) => {
-    console.error("MAIN API ERROR:", err);
+    console.error("MAIN API ERROR:", err?.response || err);
     throw err;
   }
 );
 
-// PROPHET BACKEND (Port 5001)
-export const ProphetAPI = axios.create({
-  baseURL: "http://localhost:5001/api",
+// ===============================
+// CROP RECOMMENDATION BACKEND
+// ===============================
+export const CropAPI = axios.create({
+  baseURL: CROP_API_BASE,
   headers: { "Content-Type": "application/json" },
-  timeout: 15000,
+  timeout: 20000,
 });
 
-ProphetAPI.interceptors.response.use(
+CropAPI.interceptors.response.use(
   (res) => res,
   (err) => {
-    console.error("PROPHET API ERROR:", err);
+    console.error("CROP API ERROR:", err?.response || err);
     throw err;
   }
 );
 
-// ------------------------
+// ===============================
 // FUNCTIONS / ENDPOINTS
-// ------------------------
-
-// Models
-export const listModels = () => API.get("/models/list");
-
-// Market prices
-export const getTodayPrice = (commodity, market) =>
-  API.get(`/predict/today?commodity=${commodity}&market=${market}`);
-
-export const getForecast7 = (commodity, market) =>
-  ProphetAPI.get(`/forecast/7?commodity=${commodity}&market=${market}`);
+// ===============================
 
 // Dropdown data
 export const fetchStates = () => API.get("/get-states");
-export const fetchDistricts = (state) => API.get(`/get-districts?state=${state}`);
-export const fetchMarkets = (district) => API.get(`/get-markets?district=${district}`);
+export const fetchDistricts = (state) =>
+  API.get(`/get-districts?state=${state}`);
+export const fetchMarkets = (district) =>
+  API.get(`/get-markets?district=${district}`);
 export const fetchCommodities = () => API.get("/get-commodities");
 
-// Crop and yield
-export const getCropRecommendation = (data) => API.post("/crop-recommend", data);
-export const getYieldPrediction = (data) => API.post("/yield-predict", data);
+// Crop recommendation (CROP BACKEND)
+export const getCropRecommendation = (data) =>
+  CropAPI.post("/crop-recommend", data);
 
-// NEW: Irrigation Planner
-export const getIrrigation = (data) => API.post("/irrigation", data);
+// Yield prediction (MAIN BACKEND)
+export const getYieldPrediction = (data) =>
+  API.post("/yield-predict", data);
 
-// NEW: Weather API (optional)
-export const getWeather = (location) => API.post("/weather", { location });
+// Irrigation
+export const getIrrigation = (data) =>
+  API.post("/irrigation", data);
+
+// Weather
+export const getWeather = (location) =>
+  API.post("/weather", { location });

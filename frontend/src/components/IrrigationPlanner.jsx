@@ -189,7 +189,8 @@ const GROWTH_STAGES = {
 };
 
 
-const BACKEND = "http://localhost:5000/api/irrigation";
+const IRRIGATION_API =
+  "https://ai-powered-precision-agriculture-advisor.onrender.com//api/irrigation";
 
 export default function IrrigationPlanner() {
   const navigate = useNavigate();

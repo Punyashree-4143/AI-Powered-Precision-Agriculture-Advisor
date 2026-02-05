@@ -2,6 +2,13 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+/* 🔧 BACKEND BASE URL
+   Replace this with your deployed backend URL on Render */
+const AUTH_API =
+  "https://ai-powered-precision-agriculture-advisor.onrender.com/api/auth/login";
+// for local testing, you can temporarily use:
+// http://localhost:5000/api/auth/login
+
 export default function Login() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
@@ -17,7 +24,7 @@ export default function Login() {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/auth/login",
+        AUTH_API,
         form,
         { headers: { "Content-Type": "application/json" } }
       );
@@ -51,7 +58,9 @@ export default function Login() {
             type="password"
             placeholder="Password"
             value={form.password}
-            onChange={(e) => setForm({ ...form, password: e.target.value })}
+            onChange={(e) =>
+              setForm({ ...form, password: e.target.value })
+            }
             style={styles.input}
             required
           />

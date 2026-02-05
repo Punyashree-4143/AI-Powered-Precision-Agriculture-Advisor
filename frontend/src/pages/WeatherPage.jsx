@@ -2,7 +2,13 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import WeatherForecast from "../components/WeatherForecast";
 import "../styles/WeatherPage.css";
-  // ✅ IMPORTANT for sidebar spacing
+
+/* 🔧 BACKEND URL
+   Replace with your actual Render backend URL */
+const WEATHER_API =
+  "https://ai-powered-precision-agriculture-advisor.onrender.com/api/weather";
+// local dev:
+// http://localhost:5000/api/weather
 
 export default function WeatherPage() {
   const [data, setData] = useState(null);
@@ -12,10 +18,10 @@ export default function WeatherPage() {
 
   const fetchWeather = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/weather", {
+      const res = await fetch(WEATHER_API, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ location })
+        body: JSON.stringify({ location }),
       });
 
       const json = await res.json();
@@ -30,10 +36,9 @@ export default function WeatherPage() {
   }, []);
 
   return (
-    <div className="page-content">      {/* ✅ FIXED: no overlap with sidebar */}
+    <div className="page-content">
+      {/* ✅ FIXED: no overlap with sidebar */}
       <div className="weather-page">
-
-        
 
         {/* HEADER */}
         <h1 className="wp-title">🌤 Weather Forecast</h1>

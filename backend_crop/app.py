@@ -13,25 +13,47 @@ CORS(app)
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 MODEL_DIR = os.path.join(BASE_DIR, "models")
 
+# ----------------------------------------------------
+# Load models
+# ----------------------------------------------------
 crop_model = joblib.load(os.path.join(MODEL_DIR, "crop_recommendation_model.pkl"))
 crop_scaler = joblib.load(os.path.join(MODEL_DIR, "scaler.pkl"))
 crop_le = joblib.load(os.path.join(MODEL_DIR, "label_encoder.pkl"))
 
+# ----------------------------------------------------
+# Health check (IMPORTANT for Render)
+# ----------------------------------------------------
+@app.route("/")
+def health():
+    return jsonify({
+        "status": "ok",
+        "service": "crop recommendation backend"
+    })
+
+# ----------------------------------------------------
+# Crop Recommendation API
+# ----------------------------------------------------
 @app.route("/api/crop-recommend", methods=["POST", "OPTIONS"])
 def crop_recommend():
-    # ✅ PRE-FLIGHT RESPONSE
+    # ✅ CORS pre-flight
     if request.method == "OPTIONS":
         return "", 200
 
     try:
         data = request.get_json()
 
-        X = pd.DataFrame([[ 
-            float(data["N"]), float(data["P"]), float(data["K"]),
-            float(data["temperature"]), float(data["humidity"]),
-            float(data["ph"]), float(data["rainfall"])
+        X = pd.DataFrame([[
+            float(data["N"]),
+            float(data["P"]),
+            float(data["K"]),
+            float(data["temperature"]),
+            float(data["humidity"]),
+            float(data["ph"]),
+            float(data["rainfall"])
         ]], columns=[
-            "N","P","K","temperature","humidity","ph","rainfall"
+            "N", "P", "K",
+            "temperature", "humidity",
+            "ph", "rainfall"
         ])
 
         X_scaled = crop_scaler.transform(X)
@@ -54,5 +76,8 @@ def crop_recommend():
             "trace": traceback.format_exc()
         }), 500
 
+# ----------------------------------------------------
+# Run locally only (Render ignores this)
+# ----------------------------------------------------
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5002, debug=False)
+    app.run(debug=False)

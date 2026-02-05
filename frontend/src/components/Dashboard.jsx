@@ -2,6 +2,9 @@ import React, { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/Dashboard.css";
 
+/* 🔧 CHANGE THIS TO YOUR DEPLOYED BACKEND URL */
+const BACKEND_URL = "https://ai-powered-precision-agriculture-advisor.onrender.com/";
+
 const Dashboard = () => {
   const navigate = useNavigate();
 
@@ -9,7 +12,7 @@ const Dashboard = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
 
-  // FIX redirect issue
+  // token handling
   const [token, setToken] = useState(null);
 
   useEffect(() => {
@@ -21,14 +24,24 @@ const Dashboard = () => {
   useEffect(() => {
     if (!token) return;
 
-    fetch("http://localhost:5000/api/auth/me", {
-      headers: { Authorization: `Bearer ${token}` },
+    fetch(`${BACKEND_URL}/api/auth/me`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
     })
-      .then((res) => res.json())
-      .then((data) => setProfile(data));
-  }, [token]);
+      .then((res) => {
+        if (!res.ok) throw new Error("Failed to fetch profile");
+        return res.json();
+      })
+      .then((data) => setProfile(data))
+      .catch((err) => {
+        console.error("Profile fetch error:", err);
+        localStorage.removeItem("token");
+        navigate("/login");
+      });
+  }, [token, navigate]);
 
-  // Close dropdown
+  // Close dropdown when clicking outside
   useEffect(() => {
     function handleClickOutside(e) {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
@@ -41,6 +54,7 @@ const Dashboard = () => {
 
   if (token === null) return null;
 
+  // Not logged in
   if (!token) {
     return (
       <div className="dashboard-wrapper auth-screen">
@@ -50,10 +64,16 @@ const Dashboard = () => {
         </header>
 
         <div className="auth-buttons">
-          <button className="register-btn" onClick={() => navigate("/register")}>
+          <button
+            className="register-btn"
+            onClick={() => navigate("/register")}
+          >
             Register
           </button>
-          <button className="login-btn" onClick={() => navigate("/login")}>
+          <button
+            className="login-btn"
+            onClick={() => navigate("/login")}
+          >
             Login
           </button>
         </div>
@@ -63,7 +83,6 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard-wrapper">
-      
       {/* Navbar */}
       <nav className="navbar">
         <div className="navbar-left">
@@ -71,7 +90,9 @@ const Dashboard = () => {
           <h2>Smart Agriculture Advisor</h2>
         </div>
 
-        <div className="navbar-center">AI-powered decision support system</div>
+        <div className="navbar-center">
+          AI-powered decision support system
+        </div>
 
         <div className="navbar-right" ref={dropdownRef}>
           <div
@@ -97,52 +118,67 @@ const Dashboard = () => {
         </div>
       </nav>
 
-      {/* Page Header */}
+      {/* Header */}
       <header className="dashboard-header">
         <h1>Welcome, {profile?.name} 👋</h1>
         <p>Choose a module to get started</p>
       </header>
 
-      {/* MODULE CARDS */}
+      {/* Modules */}
       <div className="dashboard-grid">
-
-        <div className="dashboard-card" onClick={() => navigate("/crop-recommendation")}>
+        <div
+          className="dashboard-card"
+          onClick={() => navigate("/crop-recommendation")}
+        >
           <div className="card-icon">🌱</div>
           <h2>Crop Recommendation</h2>
           <p>Suggests best crops based on soil & climate</p>
         </div>
 
-        <div className="dashboard-card" onClick={() => navigate("/yield-prediction")}>
+        <div
+          className="dashboard-card"
+          onClick={() => navigate("/yield-prediction")}
+        >
           <div className="card-icon">📊</div>
           <h2>Yield Prediction</h2>
           <p>Predict future yield using ML ensemble models</p>
         </div>
 
-        <div className="dashboard-card" onClick={() => navigate("/weather-forecast")}>
+        <div
+          className="dashboard-card"
+          onClick={() => navigate("/weather-forecast")}
+        >
           <div className="card-icon">⛅</div>
           <h2>Weather Forecast</h2>
           <p>Next 7 days climate & rainfall insights</p>
         </div>
 
-        <div className="dashboard-card" onClick={() => navigate("/market-forecast")}>
+        <div
+          className="dashboard-card"
+          onClick={() => navigate("/market-forecast")}
+        >
           <div className="card-icon">📈</div>
           <h2>Market Price Analysis</h2>
           <p>Predict commodity prices across markets</p>
         </div>
 
-        <div className="dashboard-card" onClick={() => navigate("/irrigation-planner")}>
+        <div
+          className="dashboard-card"
+          onClick={() => navigate("/irrigation-planner")}
+        >
           <div className="card-icon">💧</div>
           <h2>Irrigation Planner</h2>
           <p>Optimize irrigation based on soil & rainfall</p>
         </div>
 
-        {/* 🆕 PLANT DISEASE DETECTION MODULE CARD */}
-        <div className="dashboard-card" onClick={() => navigate("/disease-detection")}>
+        <div
+          className="dashboard-card"
+          onClick={() => navigate("/disease-detection")}
+        >
           <div className="card-icon">🦠</div>
           <h2>Plant Disease Detection</h2>
           <p>Detect plant diseases using your leaf images</p>
         </div>
-
       </div>
     </div>
   );
