@@ -11,6 +11,7 @@ import traceback
 import logging
 import requests
 from datetime import datetime, timedelta
+from models.ensemble_wrapper import EnsembleWrapper
 
 # -------------------------------
 # AUTH IMPORTS (ADDED)
@@ -117,50 +118,6 @@ HECTARE_TO_ACRE = 2.47105
 ACRE_TO_HECTARE = 0.404686
 YIELD_WRAPPER_PATH = os.path.join(MODEL_DIR, "yield_ensemble_wrapper.joblib")
 
-class EnsembleWrapper:
-    def __init__(self, xgb_path=None, cat_path=None, meta_path=None):
-        self.xgb_path = xgb_path
-        self.cat_path = cat_path
-        self.meta_path = meta_path
-
-
-    def predict(self, df_input):
-        preds = []
-
-        # XGB
-        if self.xgb_path and os.path.exists(self.xgb_path):
-            xgb = joblib.load(self.xgb_path)
-            p_xgb = xgb.predict(df_input)
-        else:
-            p_xgb = 0 * np.ones(len(df_input))
-
-        # CatBoost
-        p_cat = 0 * np.ones(len(df_input))
-        if self.cat_path and os.path.exists(self.cat_path):
-            try:
-                from catboost import CatBoostRegressor
-                cb = CatBoostRegressor()
-                cb.load_model(self.cat_path)
-                p_cat = cb.predict(df_input)
-            except Exception:
-                try:
-                    cb = joblib.load(self.cat_path)
-                    p_cat = cb.predict(df_input)
-                except Exception:
-                    log.exception("CatBoost load failed")
-
-        # meta weights
-        w_xgb, w_cat = 0.5, 0.5
-        if self.meta_path and os.path.exists(self.meta_path):
-            try:
-                meta = joblib.load(self.meta_path)
-                if isinstance(meta, dict):
-                    w_xgb = meta.get("w_xgb", w_xgb)
-                    w_cat = meta.get("w_cat", w_cat)
-            except Exception:
-                log.exception("Meta weights load failed")
-
-        return w_xgb * np.array(p_xgb) + w_cat * np.array(p_cat)
 
 
 def load_yield_model():
