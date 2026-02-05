@@ -506,8 +506,7 @@ def create_features_for_prediction(df):
     for w in ROLL_WINDOWS:
         df[f"roll_{w}"] = df["Avg_smlvl_at15cm"].shift(1).rolling(w).mean()
 
-return df
-
+    return df
 
 # ----------------------------------------------------
 # Iterative Soil Moisture Forecast (UNCHANGED)
