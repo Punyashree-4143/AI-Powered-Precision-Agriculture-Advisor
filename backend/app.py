@@ -117,10 +117,11 @@ ACRE_TO_HECTARE = 0.404686
 YIELD_WRAPPER_PATH = os.path.join(MODEL_DIR, "yield_ensemble_wrapper.joblib")
 
 class EnsembleWrapper:
-    def _init_(self, xgb_path=None, cat_path=None, meta_path=None):
+    def __init__(self, xgb_path=None, cat_path=None, meta_path=None):
         self.xgb_path = xgb_path
         self.cat_path = cat_path
         self.meta_path = meta_path
+
 
     def predict(self, df_input):
         preds = []
@@ -787,4 +788,5 @@ with app.app_context():
 # RUN SERVER
 # ----------------------------------------------------
 if __name__ == "__main__":
-    app.run(port=5000, debug=False)
+    app.run(debug=False)
+

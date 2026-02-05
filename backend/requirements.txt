@@ -1,0 +1,23 @@
+# Core web
+flask
+flask-cors
+gunicorn
+
+# Data & ML
+numpy
+pandas
+scikit-learn
+joblib
+cloudpickle
+
+# Models used
+xgboost
+catboost
+
+# Database & auth
+flask-sqlalchemy
+werkzeug
+pyjwt
+
+# Utilities
+requests
