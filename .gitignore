@@ -1,19 +1,41 @@
-# Ignore virtual environment
-env_disease/
+# ===============================
+# Python Virtual Environments
+# ===============================
 env/
+env_disease/
 venv/
+venv310/
+backend/venv310/
 
-# Ignore Python cache
+# ===============================
+# Python Cache / Build files
+# ===============================
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+*.so
 
-# Ignore node modules
+# ===============================
+# Node / Frontend
+# ===============================
 frontend/node_modules/
 
-# Ignore VS Code settings
+# ===============================
+# IDE / Editor settings
+# ===============================
 .vscode/
+.idea/
 
-# Large data files
+# ===============================
+# OS files
+# ===============================
+.DS_Store
+Thumbs.db
+
+# ===============================
+# Large / Dataset files
+# ===============================
 backend/market_price/karnataka_data.csv
 backend/models/soil_moisture_full.csv
 prophet_backend/karnataka_data.csv
