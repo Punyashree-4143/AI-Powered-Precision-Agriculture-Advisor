@@ -64,7 +64,8 @@ app.config["MODEL_SAVE_DIR"] = MODEL_SAVE_DIR
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///users.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
-JWT_SECRET = "MY_SUPER_SECRET_KEY"   # change later
+JWT_SECRET = os.getenv("JWT_SECRET", "dev-secret")
+   # change later
 
 # ----------------------------------------------------
 # USER MODEL (UPDATED)
