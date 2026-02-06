@@ -83,36 +83,22 @@ npm install
 ## 📸 Screenshots
 
 ### Dashboard
-<a href="https://github.com/user-attachments/assets/34d4a240-08d8-4935-aa1b-e346af1095ee">
-  <img src="https://github.com/user-attachments/assets/34d4a240-08d8-4935-aa1b-e346af1095ee" width="900"/>
-</a>
+[![Dashboard](https://github.com/user-attachments/assets/34d4a240-08d8-4935-aa1b-e346af1095ee)](https://github.com/user-attachments/assets/34d4a240-08d8-4935-aa1b-e346af1095ee)
 
 ### Crop Recommendation
-<a href="https://github.com/user-attachments/assets/10fc867e-dcea-4a18-9985-58c12a3b1b0d">
-  <img src="https://github.com/user-attachments/assets/10fc867e-dcea-4a18-9985-58c12a3b1b0d" width="900"/>
-</a>
+[![Crop Recommendation](https://github.com/user-attachments/assets/10fc867e-dcea-4a18-9985-58c12a3b1b0d)](https://github.com/user-attachments/assets/10fc867e-dcea-4a18-9985-58c12a3b1b0d)
 
 ### Yield Prediction
-<a href="https://github.com/user-attachments/assets/ee1550a3-eedc-49c4-a3f4-2b75c26c79c4">
-  <img src="https://github.com/user-attachments/assets/ee1550a3-eedc-49c4-a3f4-2b75c26c79c4" width="900"/>
-</a>
+[![Yield Prediction](https://github.com/user-attachments/assets/ee1550a3-eedc-49c4-a3f4-2b75c26c79c4)](https://github.com/user-attachments/assets/ee1550a3-eedc-49c4-a3f4-2b75c26c79c4)
 
 ### Plant Disease Detection
-<a href="https://github.com/user-attachments/assets/995a9870-5678-41b3-824a-06692f707133">
-  <img src="https://github.com/user-attachments/assets/995a9870-5678-41b3-824a-06692f707133" width="900"/>
-</a>
+[![Disease Detection](https://github.com/user-attachments/assets/995a9870-5678-41b3-824a-06692f707133)](https://github.com/user-attachments/assets/995a9870-5678-41b3-824a-06692f707133)
 
 ### Weather Forecast
-<a href="https://github.com/user-attachments/assets/e92ba724-d5f1-4a68-89ab-3eff10f1e81b">
-  <img src="https://github.com/user-attachments/assets/e92ba724-d5f1-4a68-89ab-3eff10f1e81b" width="900"/>
-</a>
+[![Weather Forecast](https://github.com/user-attachments/assets/e92ba724-d5f1-4a68-89ab-3eff10f1e81b)](https://github.com/user-attachments/assets/e92ba724-d5f1-4a68-89ab-3eff10f1e81b)
 
 ### Market Price Analysis
-<a href="https://github.com/user-attachments/assets/adc0e030-0b57-4063-8f59-79c46283a006">
-  <img src="https://github.com/user-attachments/assets/adc0e030-0b57-4063-8f59-79c46283a006" width="900"/>
-</a>
+[![Market Price](https://github.com/user-attachments/assets/adc0e030-0b57-4063-8f59-79c46283a006)](https://github.com/user-attachments/assets/adc0e030-0b57-4063-8f59-79c46283a006)
 
 ### Irrigation Planner
-<a href="https://github.com/user-attachments/assets/176c8ea5-d4cc-4595-a1f4-0c656dab9161">
-  <img src="https://github.com/user-attachments/assets/176c8ea5-d4cc-4595-a1f4-0c656dab9161" width="900"/>
-</a>
+[![Irrigation Planner](https://github.com/user-attachments/assets/176c8ea5-d4cc-4595-a1f4-0c656dab9161)](https://github.com/user-attachments/assets/176c8ea5-d4cc-4595-a1f4-0c656dab9161)
