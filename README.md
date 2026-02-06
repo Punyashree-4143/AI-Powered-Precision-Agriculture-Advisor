@@ -64,22 +64,6 @@ Each module operates independently, making the system scalable and easy to maint
 
 ---
 
-## ⚙️ Installation
-
-```bash
-# Clone the repository
-git clone https://github.com/Punyashree-4143/AI-Powered-Precision-Agriculture-Advisor.git
-
-# Navigate to the project folder
-cd your-repo-name
-
-# Install backend dependencies
-pip install -r requirements.txt
-
-# Install frontend dependencies
-npm install
-
-
 ## 📸 Screenshots
 
 ### Dashboard
@@ -102,3 +86,21 @@ npm install
 
 ### Irrigation Planner
 [![Irrigation Planner](https://github.com/user-attachments/assets/176c8ea5-d4cc-4595-a1f4-0c656dab9161)](https://github.com/user-attachments/assets/176c8ea5-d4cc-4595-a1f4-0c656dab9161)
+
+
+## ⚙️ Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/Punyashree-4143/AI-Powered-Precision-Agriculture-Advisor.git
+
+# Navigate to the project folder
+cd your-repo-name
+
+# Install backend dependencies
+pip install -r requirements.txt
+
+# Install frontend dependencies
+npm install
+
+
