@@ -192,7 +192,8 @@ const GROWTH_STAGES = {
 };
 
 
-const IRRIGATION_API = `${process.env.REACT_APP_API_BASE}/irrigation`;
+const IRRIGATION_API = `${process.env.REACT_APP_API_BASE}/api/irrigation`;
+
 
 
 export default function IrrigationPlanner() {

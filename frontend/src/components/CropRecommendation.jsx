@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import "../styles/CropRecommendation.css";
 
-const CROP_API_BASE = process.env.REACT_APP_CROP_API;
+const CROP_API_BASE = `${process.env.REACT_APP_CROP_API}/api/crop-recommend`;
+
 
 if (!CROP_API_BASE) {
   console.error("❌ REACT_APP_CROP_API is missing. Check .env or Vercel env vars.");
