@@ -83,29 +83,36 @@ npm install
 ## 📸 Screenshots
 
 ### Dashboard
-![Dashboard](<img width="1000" height="544" alt="image" src="https://github.com/user-attachments/assets/34d4a240-08d8-4935-aa1b-e346af1095ee" />
-)
+<a href="https://github.com/user-attachments/assets/34d4a240-08d8-4935-aa1b-e346af1095ee">
+  <img src="https://github.com/user-attachments/assets/34d4a240-08d8-4935-aa1b-e346af1095ee" width="900"/>
+</a>
 
 ### Crop Recommendation
-![Crop Recommendation](<img width="970" height="583" alt="image" src="https://github.com/user-attachments/assets/10fc867e-dcea-4a18-9985-58c12a3b1b0d" />
-)
+<a href="https://github.com/user-attachments/assets/10fc867e-dcea-4a18-9985-58c12a3b1b0d">
+  <img src="https://github.com/user-attachments/assets/10fc867e-dcea-4a18-9985-58c12a3b1b0d" width="900"/>
+</a>
 
 ### Yield Prediction
-![Yield Prediction](<img width="942" height="583" alt="image" src="https://github.com/user-attachments/assets/ee1550a3-eedc-49c4-a3f4-2b75c26c79c4" />
-)
+<a href="https://github.com/user-attachments/assets/ee1550a3-eedc-49c4-a3f4-2b75c26c79c4">
+  <img src="https://github.com/user-attachments/assets/ee1550a3-eedc-49c4-a3f4-2b75c26c79c4" width="900"/>
+</a>
 
 ### Plant Disease Detection
-![Disease Detection](<img width="923" height="675" alt="image" src="https://github.com/user-attachments/assets/995a9870-5678-41b3-824a-06692f707133" />
-)
+<a href="https://github.com/user-attachments/assets/995a9870-5678-41b3-824a-06692f707133">
+  <img src="https://github.com/user-attachments/assets/995a9870-5678-41b3-824a-06692f707133" width="900"/>
+</a>
 
 ### Weather Forecast
-![Weather Forecast](<img width="993" height="567" alt="image" src="https://github.com/user-attachments/assets/e92ba724-d5f1-4a68-89ab-3eff10f1e81b" />
-)
+<a href="https://github.com/user-attachments/assets/e92ba724-d5f1-4a68-89ab-3eff10f1e81b">
+  <img src="https://github.com/user-attachments/assets/e92ba724-d5f1-4a68-89ab-3eff10f1e81b" width="900"/>
+</a>
 
 ### Market Price Analysis
-![Market Price](<img width="983" height="542" alt="image" src="https://github.com/user-attachments/assets/adc0e030-0b57-4063-8f59-79c46283a006" />
-)
+<a href="https://github.com/user-attachments/assets/adc0e030-0b57-4063-8f59-79c46283a006">
+  <img src="https://github.com/user-attachments/assets/adc0e030-0b57-4063-8f59-79c46283a006" width="900"/>
+</a>
 
 ### Irrigation Planner
-![Irrigation Planner](<img width="914" height="537" alt="image" src="https://github.com/user-attachments/assets/176c8ea5-d4cc-4595-a1f4-0c656dab9161" />
-)
+<a href="https://github.com/user-attachments/assets/176c8ea5-d4cc-4595-a1f4-0c656dab9161">
+  <img src="https://github.com/user-attachments/assets/176c8ea5-d4cc-4595-a1f4-0c656dab9161" width="900"/>
+</a>
