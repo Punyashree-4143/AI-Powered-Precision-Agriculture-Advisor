@@ -7,8 +7,7 @@ import "../styles/WeatherPage.css";
    Replace with your actual Render backend URL */
 const WEATHER_API =
   "https://ai-powered-precision-agriculture-advisor.onrender.com/api/weather";
-// local dev:
-// http://localhost:5000/api/weather
+
 
 export default function WeatherPage() {
   const [data, setData] = useState(null);

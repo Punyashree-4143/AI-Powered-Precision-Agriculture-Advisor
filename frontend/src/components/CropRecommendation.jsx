@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import "../styles/CropRecommendation.css";
 
+const CROP_API_BASE = process.env.REACT_APP_CROP_API;
+
+if (!CROP_API_BASE) {
+  console.error("❌ REACT_APP_CROP_API is missing. Check .env or Vercel env vars.");
+}
+
 function CropRecommendation() {
   const [formData, setFormData] = useState({
     N: "",
@@ -20,25 +26,24 @@ function CropRecommendation() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
-      const res = await fetch("http://127.0.0.1:5002/api/crop-recommend", {
+      const res = await fetch(`${CROP_API_BASE}/crop-recommend`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
+
       const data = await res.json();
       setRecommendations(data.recommendations || []);
     } catch (err) {
-      console.error(err);
+      console.error("Crop recommendation error:", err);
     }
   };
 
   return (
     <div className="crop-container">
       <h2>🌾 Crop Recommendation</h2>
-      <p className="desc">
-        Enter soil and environmental parameters to get AI-based crop recommendations.
-      </p>
 
       <form onSubmit={handleSubmit} className="form-box">
         <div className="crop-grid">
@@ -66,11 +71,10 @@ function CropRecommendation() {
           <h3>🌱 Top Recommended Crops</h3>
 
           <div className="result-horizontal">
-            {recommendations.slice(0, 3).map((rec, idx) => (
+            {recommendations.map((rec, idx) => (
               <div key={idx} className="result-card">
-                <span>Rank {idx + 1}</span>
                 <p>{rec.crop}</p>
-                <small>{rec.confidence.toFixed(2)}%</small>
+                <small>{rec.confidence}%</small>
               </div>
             ))}
           </div>

@@ -3,8 +3,8 @@ import axios from "axios";
 // ===============================
 // ENV VARIABLES (Vite)
 // ===============================
-const API_BASE = import.meta.env.VITE_API_BASE;
-const CROP_API_BASE = import.meta.env.VITE_CROP_API;
+const API_BASE = process.env.REACT_APP_API_BASE;
+const CROP_API_BASE = process.env.REACT_APP_CROP_API;
 
 // ===============================
 // MAIN BACKEND

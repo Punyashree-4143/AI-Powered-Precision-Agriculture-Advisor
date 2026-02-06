@@ -17,6 +17,8 @@ import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import "../styles/IrrigationPlanner.css";
 
+
+
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -26,6 +28,7 @@ ChartJS.register(
   Legend,
   TimeScale
 );
+
 
 // CONSTANTS
 const DISTRICTS_KARNATAKA = [
@@ -189,8 +192,8 @@ const GROWTH_STAGES = {
 };
 
 
-const IRRIGATION_API =
-  "https://ai-powered-precision-agriculture-advisor.onrender.com//api/irrigation";
+const IRRIGATION_API = `${process.env.REACT_APP_API_BASE}/irrigation`;
+
 
 export default function IrrigationPlanner() {
   const navigate = useNavigate();
@@ -233,7 +236,8 @@ export default function IrrigationPlanner() {
         soil_type: formData.soil_type,
       };
 
-      const res = await axios.post(BACKEND, payload, { timeout: 15000 });
+      const res = await axios.post(IRRIGATION_API, payload, { timeout: 15000 });
+
       const data = Array.isArray(res.data) ? res.data : res.data.plan || [];
 
       const threshold =

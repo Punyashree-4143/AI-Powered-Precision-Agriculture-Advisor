@@ -12,6 +12,9 @@ import logging
 import requests
 from datetime import datetime, timedelta
 from models.ensemble_wrapper import EnsembleWrapper
+from flask import Flask, request, jsonify
+from flask_cors import CORS
+from models.env_disease_inference import predict_disease
 
 # -------------------------------
 # AUTH IMPORTS (ADDED)
@@ -160,6 +163,21 @@ def home():
             "Irrigation Suggestion"
         ]
     })
+
+@app.route("/api/disease-predict", methods=["POST"])
+def disease_predict():
+    try:
+        if "image" not in request.files:
+            return jsonify({"error": "No image uploaded"}), 400
+
+        image_bytes = request.files["image"].read()
+        result = predict_disease(image_bytes)
+
+        return jsonify(result)
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
 
 # ----------------------------------------------------
 # AUTH ROUTES (REGISTER + LOGIN + PROFILE + PASSWORD CHANGE)

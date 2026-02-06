@@ -2,7 +2,7 @@
 
 export async function getIrrigationPlan(payload) {
   const res = await fetch(
-    "https://ai-powered-precision-agriculture-advisor.onrender.com//api/irrigation",
+    "https://ai-powered-precision-agriculture-advisor.onrender.com/api/irrigation",
     {
       method: "POST",
       headers: { "Content-Type": "application/json" },

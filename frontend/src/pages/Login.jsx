@@ -6,8 +6,7 @@ import { useNavigate } from "react-router-dom";
    Replace this with your deployed backend URL on Render */
 const AUTH_API =
   "https://ai-powered-precision-agriculture-advisor.onrender.com/api/auth/login";
-// for local testing, you can temporarily use:
-// http://localhost:5000/api/auth/login
+
 
 export default function Login() {
   const navigate = useNavigate();
