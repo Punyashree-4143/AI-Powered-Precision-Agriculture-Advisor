@@ -68,7 +68,7 @@ Each module operates independently, making the system scalable and easy to maint
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/your-repo-name.git
+git clone https://github.com/Punyashree-4143/AI-Powered-Precision-Agriculture-Advisor.git
 
 # Navigate to the project folder
 cd your-repo-name
@@ -78,3 +78,34 @@ pip install -r requirements.txt
 
 # Install frontend dependencies
 npm install
+
+
+## 📸 Screenshots
+
+### Dashboard
+![Dashboard](<img width="1000" height="544" alt="image" src="https://github.com/user-attachments/assets/34d4a240-08d8-4935-aa1b-e346af1095ee" />
+)
+
+### Crop Recommendation
+![Crop Recommendation](<img width="970" height="583" alt="image" src="https://github.com/user-attachments/assets/10fc867e-dcea-4a18-9985-58c12a3b1b0d" />
+)
+
+### Yield Prediction
+![Yield Prediction](<img width="942" height="583" alt="image" src="https://github.com/user-attachments/assets/ee1550a3-eedc-49c4-a3f4-2b75c26c79c4" />
+)
+
+### Plant Disease Detection
+![Disease Detection](<img width="923" height="675" alt="image" src="https://github.com/user-attachments/assets/995a9870-5678-41b3-824a-06692f707133" />
+)
+
+### Weather Forecast
+![Weather Forecast](<img width="993" height="567" alt="image" src="https://github.com/user-attachments/assets/e92ba724-d5f1-4a68-89ab-3eff10f1e81b" />
+)
+
+### Market Price Analysis
+![Market Price](<img width="983" height="542" alt="image" src="https://github.com/user-attachments/assets/adc0e030-0b57-4063-8f59-79c46283a006" />
+)
+
+### Irrigation Planner
+![Irrigation Planner](<img width="914" height="537" alt="image" src="https://github.com/user-attachments/assets/176c8ea5-d4cc-4595-a1f4-0c656dab9161" />
+)
